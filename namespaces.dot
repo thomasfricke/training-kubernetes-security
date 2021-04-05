@@ -1,0 +1,36 @@
+// This file is covered license in License.ipynb . This note must not be removed
+
+strict digraph {
+
+  compound=true;
+
+  node[shape="box",style="rounded,filled",fillcolor=green]
+  Namespace[fillcolor=yellow]
+  Namespace -> ipc
+  Namespace -> cgroup
+  Namespace -> mount
+  Namespace -> PID
+  Namespace -> users
+  Namespace -> Time
+  Namespace -> Systemd
+  
+  subgraph cluster_network{
+    node [color=blue];
+
+	color=black;
+    net[style=filled,fillcolor=lightblue]
+    UTS[fillcolor=lightblue]
+    label="network namespace"
+  }
+  
+  Namespace -> net
+  Namespace -> UTS
+  
+  API[fillcolor=orange]
+  API -> clone
+  API -> setns
+  API -> unshare
+  API -> ioctl
+  
+ 
+}

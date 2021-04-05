@@ -1,0 +1,37 @@
+digraph  {
+	subgraph cluster_s1 {
+		subgraph cluster_s2 {
+			label="Namespace";style="dashed";
+			n4[color="red",fillcolor="#2f6de1",fontcolor="#030303",label="Missing Subject\n(Kind)",penwidth="2.0",shape="box",style="dotted"];
+			n3[color="black",fillcolor="#2f6de1",fontcolor="#f0f0f0",label="Subject\n(Kind)",penwidth="1.0",shape="box",style="filled"];
+			n6[color="black",fillcolor="#ff9900",fontcolor="#030303",label="ClusterRole",penwidth="1.0",shape="doubleoctagon",style="filled,dashed"];
+			n5[color="black",fillcolor="#ff9900",fontcolor="#030303",label="Role",penwidth="1.0",shape="octagon",style="filled"];
+			n8[fillcolor="#ffcc00",fontcolor="#030303",label="RoleBinding",penwidth="1.0",shape="octagon",style="filled"];
+			n9[fillcolor="#ffcc00",fontcolor="#030303",label="RoleBinding",penwidth="1.0",shape="octagon",style="filled"];
+			n12[label="Namespace-scoped\naccess rules",penwidth="1.0",shape="note"];
+			n11[label=<Namespace-scoped
+access rules>,penwidth="1.0",shape="note"];
+			n4->n8[dir="back"];
+			n3->n8[dir="back"];
+			n3->n9[dir="back"];
+			n6->n12;
+			n5->n11;
+			n8->n5;
+			n9->n6;
+			
+		}
+		label="LEGEND";
+		n7[color="black",fillcolor="#ff9900",fontcolor="#030303",label="ClusterRole",penwidth="1.0",shape="doubleoctagon",style="filled"];
+		n10[fillcolor="#ffcc00",fontcolor="#030303",label="ClusterRoleBinding",penwidth="1.0",shape="doubleoctagon",style="filled"];
+		n13[label=<Cluster-scoped
+access rules>,penwidth="1.0",shape="note"];
+		n7->n13;
+		n10->n7;
+		
+	}
+	newrank="true";
+	n3->n10[dir="back"];
+	{rank=same; n5;n6;n7;};
+	
+}
+
