@@ -7,4 +7,8 @@ Missing png files are created from dot file using make
 
 https://github.com/thomasfricke/training-minikube
 
+## Overview
+
+The [Overview Notebook](Overview.ipynb) is the point to start.
+
 
